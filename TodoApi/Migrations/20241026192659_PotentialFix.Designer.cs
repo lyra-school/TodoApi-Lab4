@@ -10,8 +10,8 @@ using TodoApi;
 namespace TodoApi.Migrations
 {
     [DbContext(typeof(TodoDb))]
-    [Migration("20241014112104_ModifiedModel")]
-    partial class ModifiedModel
+    [Migration("20241026192659_PotentialFix")]
+    partial class PotentialFix
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -31,8 +31,10 @@ namespace TodoApi.Migrations
                     b.Property<int>("Priority")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("Status")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasAnnotation("Relational:JsonPropertyName", "status");
 
                     b.HasKey("Id");
 

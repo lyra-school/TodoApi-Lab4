@@ -4,10 +4,10 @@ namespace TodoApi
 {
     public enum Status
     {
-        Complete,
-        InProgress,
-        OnHold,
-        Pending
+        Complete = 0,
+        InProgress = 1,
+        OnHold = 2,
+        Pending = 3
     }
     public class Todo
     {
